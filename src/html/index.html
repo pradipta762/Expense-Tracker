@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker | PD</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../output.css">
+    <style>
+        .container {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        .content-wrapper {
+            padding: 50px 0;
+        }
+        ::selection {
+            color: orange;
+        }
+    </style>
+</head>
+
+<body class="bg-zinc-900 text-white">
+    <section id="main-section">
+        <div class="container">
+            <div class="content-wrapper">
+                <h1 class="text-2xl font-semibold mb-4">Expense Tracker</h1>
+                <div class="flex gap-4 w-full mb-4">
+                    <div class="bg-add-color rounded-lg p-5 flex-1 flex flex-col justify-center items-center border border-add-border-color">
+                        <span>Cash</span>
+                        <span class="cash">₹0.00</span>
+                    </div>
+                    <div class="bg-add-color rounded-lg p-5 flex-1 flex flex-col justify-center items-center border border-add-border-color">
+                        <span>UPI</span>
+                        <span class="upi">₹0.00</span>
+                    </div>
+                </div>
+                <div class="bg-remove-color rounded-lg p-5 w-full mb-4 flex flex-col justify-center items-center border border-reemove-border-color">
+                    <span>Total Expense</span>
+                    <span class="expense">₹0.00</span>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <button id="add-money" class="rounded-lg py-3 bg-zinc-800">
+                        Add Money
+                    </button>
+                    <button id="add-expense" class="rounded-lg py-3 bg-zinc-800">
+                        Add Expense
+                    </button>
+                    <button class="rounded-lg py-3 bg-zinc-800">
+                        Expense History
+                    </button>
+                    <!-- <a href="#">Reset</a> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add expense -->
+
+    <section id="add-expense-section" class="hidden">
+        <div class="container">
+            <div class="content-wrapper">
+                <h1 class="text-2xl font-semibold mb-4">
+                    <i class="back-to-main fa-solid fa-arrow-left mr-2 cursor-pointer"></i>
+                    Expense Tracker
+                </h1>
+                <div class="bg-remove-color rounded-lg p-5 w-full mb-4 flex flex-col justify-center items-center border border-reemove-border-color">
+                    <span>Total Expense</span>
+                    <span class="expense">₹0.00</span>
+                </div>
+                <div id="expense-form" class="mt-10 rounded-lg bg-zinc-800 p-4">
+                    <div class="flex flex-col gap-4 mb-4">
+                        <label for="payment-for">Paid For : </label>
+                        <input class="bg-zinc-700 p-3 rounded-lg border-zinc-700 outline-none focus:border-purple-700 w-full" type="text" name="payment-for" id="payment-for">
+                    </div>
+                    <div class="flex flex-col gap-4 mb-4">
+                        <label for="expense-amount">Enter the amount : </label>
+                        <input class="bg-zinc-700 p-3 rounded-lg border-zinc-700 outline-none focus:border-purple-700 w-full" type="number" name="expense-amount" id="expense-amount">
+                    </div>
+                    <div class="flex flex-col gap-4 mb-6">
+                        <label for="date">Date : </label>
+                        <input class="bg-zinc-700 p-3 rounded-lg border-zinc-700 outline-none focus:border-purple-700 w-full" type="date" name="date" id="date">
+                    </div>
+                    <div class="flex gap-8 mb-4">
+                        <div class="flex gap-2 items-center">
+                            <label for="expense-mode">Cash</label>
+                            <input class="checked:bg-purple-600" type="radio" name="expense-mode" id="cash-mode" value="cash">
+                        </div>
+                        <div class="flex gap-2 items-center">
+                            <label for="expense-mode">UPI</label>
+                            <input class="checked:bg-purple-600" type="radio" name="expense-mode" id="upi-mode" value="upi">
+                        </div>
+                    </div>
+                    <button id="add-expense-btn" class="relative w-full bg-green-700 text-center py-3 px-5 rounded-lg">Add Expense</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add amount -->
+
+    <section id="add-amount-section" class="hidden">
+        <div class="container">
+            <div class="content-wrapper">
+                <h1 class="text-2xl font-semibold mb-4">
+                    <i class="back-to-main fa-solid fa-arrow-left mr-2 cursor-pointer"></i>
+                    Expense Tracker
+                </h1>
+                <div class="flex gap-4 w-full mb-4">
+                    <div class="bg-add-color rounded-lg p-5 flex-1 flex flex-col justify-center items-center border border-add-border-color">
+                        <span>Cash</span>
+                        <span class="cash">₹0.00</span>
+                    </div>
+                    <div class="bg-add-color rounded-lg p-5 flex-1 flex flex-col justify-center items-center border border-add-border-color">
+                        <span>UPI</span>
+                        <span class="upi">₹0.00</span>
+                    </div>
+                </div>
+                <div id="amount-form" class="mt-10 rounded-lg bg-zinc-800 p-4">
+                    <div class="flex flex-col gap-4 mb-4">
+                        <label for="add-amount">Enter the amount : </label>
+                        <input class="bg-zinc-700 p-3 rounded-lg border-zinc-700 outline-none focus:border-purple-700 w-full" type="number" name="add-amount" id="add-amount">
+                    </div>
+                    <div class="flex flex-col gap-4 mb-6">
+                        <label for="date">Date : </label>
+                        <input class="bg-zinc-700 p-3 rounded-lg border-zinc-700 outline-none focus:border-purple-700 w-full" type="date" name="date" id="date">
+                    </div>
+                    <div class="flex gap-8 mb-4">
+                        <div class="flex gap-2 items-center">
+                            <label for="amount-mode">Cash</label>
+                            <input class="checked:bg-purple-600" type="radio" name="amount-mode" id="cash-mode" value="cash">
+                        </div>
+                        <div class="flex gap-2 items-center">
+                            <label for="amount-mode">UPI</label>
+                            <input class="checked:bg-purple-600" type="radio" name="amount-mode" id="upi-mode" value="upi">
+                        </div>
+                    </div>
+                    <button id="add-amount-btn" class="relative w-full bg-green-700 text-center py-3 px-5 rounded-lg">Add Amount</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../js/script.js"></script>
+</body>
+
+</html>
