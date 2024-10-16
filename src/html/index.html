@@ -30,16 +30,16 @@
                 <h1 class="text-2xl font-semibold mb-4">Expense Tracker</h1>
                 <div class="flex gap-4 w-full mb-4">
                     <div class="bg-add-color rounded-lg p-5 flex-1 flex flex-col justify-center items-center border border-add-border-color">
-                        <span>Cash</span>
+                        <span class="text-lg font-semibold">Cash</span>
                         <span class="cash">₹0.00</span>
                     </div>
                     <div class="bg-add-color rounded-lg p-5 flex-1 flex flex-col justify-center items-center border border-add-border-color">
-                        <span>UPI</span>
+                        <span class="text-lg font-semibold">UPI</span>
                         <span class="upi">₹0.00</span>
                     </div>
                 </div>
                 <div class="bg-remove-color rounded-lg p-5 w-full mb-4 flex flex-col justify-center items-center border border-reemove-border-color">
-                    <span>Total Expense</span>
+                    <span class="text-lg font-semibold">Total Expense</span>
                     <span class="expense">₹0.00</span>
                 </div>
                 <div class="flex flex-col gap-4">
@@ -49,10 +49,10 @@
                     <button id="add-expense" class="rounded-lg py-3 bg-zinc-800">
                         Add Expense
                     </button>
-                    <button class="rounded-lg py-3 bg-zinc-800">
+                    <button id="expense-history" class="rounded-lg py-3 bg-zinc-800">
                         Expense History
                     </button>
-                    <!-- <a href="#">Reset</a> -->
+                    <button id="reset" class="underline text-red-500">Reset All</button>
                 </div>
             </div>
         </div>
@@ -74,24 +74,24 @@
                 <div id="expense-form" class="mt-10 rounded-lg bg-zinc-800 p-4">
                     <div class="flex flex-col gap-4 mb-4">
                         <label for="payment-for">Paid For : </label>
-                        <input class="bg-zinc-700 p-3 rounded-lg border-zinc-700 outline-none focus:border-purple-700 w-full" type="text" name="payment-for" id="payment-for">
+                        <input class="bg-zinc-700 p-3 rounded-lg border-zinc-700 outline-none focus:border-purple-700 w-full" type="text" name="payment-for" id="payment-for" required>
                     </div>
                     <div class="flex flex-col gap-4 mb-4">
                         <label for="expense-amount">Enter the amount : </label>
-                        <input class="bg-zinc-700 p-3 rounded-lg border-zinc-700 outline-none focus:border-purple-700 w-full" type="number" name="expense-amount" id="expense-amount">
+                        <input class="bg-zinc-700 p-3 rounded-lg border-zinc-700 outline-none focus:border-purple-700 w-full" type="number" name="expense-amount" id="expense-amount" required>
                     </div>
                     <div class="flex flex-col gap-4 mb-6">
-                        <label for="date">Date : </label>
-                        <input class="bg-zinc-700 p-3 rounded-lg border-zinc-700 outline-none focus:border-purple-700 w-full" type="date" name="date" id="date">
+                        <label for="expense-date">Date : </label>
+                        <input class="bg-zinc-700 p-3 rounded-lg border-zinc-700 outline-none focus:border-purple-700 w-full" type="date" name="expense-date" id="expense-date" required>
                     </div>
                     <div class="flex gap-8 mb-4">
                         <div class="flex gap-2 items-center">
                             <label for="expense-mode">Cash</label>
-                            <input class="checked:bg-purple-600" type="radio" name="expense-mode" id="cash-mode" value="cash">
+                            <input class="checked:bg-purple-600" type="radio" name="expense-mode" id="cash-mode" value="cash" required>
                         </div>
                         <div class="flex gap-2 items-center">
                             <label for="expense-mode">UPI</label>
-                            <input class="checked:bg-purple-600" type="radio" name="expense-mode" id="upi-mode" value="upi">
+                            <input class="checked:bg-purple-600" type="radio" name="expense-mode" id="upi-mode" value="upi" required>
                         </div>
                     </div>
                     <button id="add-expense-btn" class="relative w-full bg-green-700 text-center py-3 px-5 rounded-lg">Add Expense</button>
@@ -122,23 +122,65 @@
                 <div id="amount-form" class="mt-10 rounded-lg bg-zinc-800 p-4">
                     <div class="flex flex-col gap-4 mb-4">
                         <label for="add-amount">Enter the amount : </label>
-                        <input class="bg-zinc-700 p-3 rounded-lg border-zinc-700 outline-none focus:border-purple-700 w-full" type="number" name="add-amount" id="add-amount">
+                        <input class="bg-zinc-700 p-3 rounded-lg border-zinc-700 outline-none focus:border-purple-700 w-full" type="number" name="add-amount" id="add-amount" required>
                     </div>
                     <div class="flex flex-col gap-4 mb-6">
-                        <label for="date">Date : </label>
-                        <input class="bg-zinc-700 p-3 rounded-lg border-zinc-700 outline-none focus:border-purple-700 w-full" type="date" name="date" id="date">
+                        <label for="add-money-date">Date : </label>
+                        <input class="bg-zinc-700 p-3 rounded-lg border-zinc-700 outline-none focus:border-purple-700 w-full" type="date" name="add-money-date" id="add-money-date" required>
                     </div>
                     <div class="flex gap-8 mb-4">
                         <div class="flex gap-2 items-center">
                             <label for="amount-mode">Cash</label>
-                            <input class="checked:bg-purple-600" type="radio" name="amount-mode" id="cash-mode" value="cash">
+                            <input class="checked:bg-purple-600" type="radio" name="amount-mode" id="cash-mode" value="cash" required>
                         </div>
                         <div class="flex gap-2 items-center">
                             <label for="amount-mode">UPI</label>
-                            <input class="checked:bg-purple-600" type="radio" name="amount-mode" id="upi-mode" value="upi">
+                            <input class="checked:bg-purple-600" type="radio" name="amount-mode" id="upi-mode" value="upi" required>
                         </div>
                     </div>
                     <button id="add-amount-btn" class="relative w-full bg-green-700 text-center py-3 px-5 rounded-lg">Add Amount</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expense History Section -->
+    <section id="expense-history-section" class="hidden">
+        <div class="container">
+            <div class="content-wrapper">
+                <h1 class="text-2xl font-semibold mb-4">
+                    <i class="back-to-main fa-solid fa-arrow-left mr-2 cursor-pointer"></i>
+                    Expense Tracker
+                </h1>
+                <div class="flex gap-4 w-full mb-4">
+                    <div class="bg-add-color rounded-lg p-5 flex-1 flex flex-col justify-center items-center border border-add-border-color">
+                        <span>Cash</span>
+                        <span class="cash">₹0.00</span>
+                    </div>
+                    <div class="bg-add-color rounded-lg p-5 flex-1 flex flex-col justify-center items-center border border-add-border-color">
+                        <span>UPI</span>
+                        <span class="upi">₹0.00</span>
+                    </div>
+                </div>
+                <div class="bg-remove-color rounded-lg p-5 w-full mb-4 flex flex-col justify-center items-center border border-reemove-border-color">
+                    <span>Total Expense</span>
+                    <span class="expense">₹0.00</span>
+                </div>
+                <div class="mt-6">
+                    <h2 class="text-lg font-bold mb-4">Expense History</h2>
+                    <table class="min-w-full table-auto border-collapse border border-gray-300">
+                        <thead>
+                            <tr>
+                            <th class="px-4 py-2 border border-gray-300">Date</th>
+                            <th class="px-4 py-2 border border-gray-300">Expense For</th>
+                            <th class="px-4 py-2 border border-gray-300">Amount</th>
+                            <th class="px-4 py-2 border border-gray-300">Payment Method</th>
+                            </tr>
+                        </thead>
+                        <tbody id="expenseHistoryBody" class="text-center">
+                            <!-- Dynamic expense rows will be inserted here -->
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
